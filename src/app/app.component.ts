@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { UsersService } from './services/user-service.service';
+import { UserUpdateCounterService } from './services/user-update-counter.service';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'services_assignment';
+
+  constructor(
+    private users: UsersService, 
+    public actionCount: UserUpdateCounterService
+  ){}
+
+  activeUsers = this.users.activeUsers;
+  inactiveUsers = this.users.inactiveUsers;
+  
 }
